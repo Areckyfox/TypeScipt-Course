@@ -1,0 +1,19 @@
+{
+  "name": "typescipt-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Areckyfox/TypeScipt-Course.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Areckyfox/TypeScipt-Course/issues"
+  },
+  "homepage": "https://github.com/Areckyfox/TypeScipt-Course#readme"
+}
