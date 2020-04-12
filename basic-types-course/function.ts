@@ -1,8 +1,8 @@
-function add(n1: number, n2:number) {
+function add2(n1: number, n2:number) {
     return n1 + n2
 }
 
-function printResult(num: number) {
+function printResult2(num: number) {
     console.log('Result: ' + num);
 }
 
@@ -12,12 +12,12 @@ function addAndHandle(n1: number, n2: number, cb: (num: number)=> void) {
 }
 
 let combinedValues: (a: number, b: number)=> number; 
-combinedValues = add;
+combinedValues = add2;
 
 console.log( combinedValues(4,5));
 
 
-printResult(add(3, 5));
+printResult2(add2(3, 5));
 
 addAndHandle(11, 22, (as)=> {console.log('callBack is: ' + as);
 })

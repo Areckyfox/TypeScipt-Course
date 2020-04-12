@@ -1,4 +1,4 @@
-function add(n1: number, n2: number, showResult: boolean, phrase: string) {
+function add3(n1: number, n2: number, showResult: boolean, phrase: string) {
    
    const result = n1 + n2;
 
@@ -14,4 +14,4 @@ const printResult = true;
 const resultPhrase: string = 'Result is: ';
 
 
-const result = add(number1, number2, printResult, resultPhrase);
+const result = add3(number1, number2, printResult, resultPhrase);
