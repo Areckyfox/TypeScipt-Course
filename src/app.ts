@@ -22,4 +22,4 @@ class ProjectInput {
   }
 }
 
-const prjInput = new ProjectInput();
+const prjjInput = new ProjectInput();
