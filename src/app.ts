@@ -1,6 +1,6 @@
 //validation
 
-interface Validateable {
+interface Validatable {
   value: string | number;
   required?: boolean;
   minLength?: number;
@@ -9,7 +9,7 @@ interface Validateable {
   max?: number;
 }
 
-function validate(validateableInput: Validateable) {
+function validate(validateableInput: Validatable) {
   let isValid = true;
   if(validateableInput.required) {
     isValid = isValid && validateableInput.value.toString().trim().length !== 0;
@@ -81,16 +81,16 @@ class ProjectInput {
     const enteredDescription = this.descriptionInputElement.value;
     const enteredPeople = this.peopleInputElement.value;
     
-    const titleValidatable: Validateable = {
+    const titleValidatable: Validatable = {
       value: enteredTitle,
       required: true,
       minLength: 5
     }
-    const descriptionValidatable: Validateable = {
+    const descriptionValidatable: Validatable = {
       value: enteredDescription,
       required: true
     }
-    const peopleValidatable: Validateable = {
+    const peopleValidatable: Validatable = {
       value: enteredPeople,
       required: true,
       min: 1,
