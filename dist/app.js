@@ -41,6 +41,20 @@ function autobind(_, _2, descriptor) {
     };
     return adjDescriptor;
 }
+class ProjectList {
+    constructor(type) {
+        this.type = type;
+        this.templateElement = document.getElementById("project-list");
+        this.hostElement = document.getElementById("app");
+        const importedContent = document.importNode(this.templateElement.content, true);
+        this.element = importedContent.firstElementChild;
+        this.element.id = `${this.type}-projects`;
+        this.attach();
+    }
+    attach() {
+        this.hostElement.insertAdjacentElement("beforeend", this.element);
+    }
+}
 class ProjectInput {
     constructor() {
         this.templateElement = document.getElementById("project-input");
