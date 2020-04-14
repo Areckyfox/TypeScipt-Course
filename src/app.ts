@@ -40,6 +40,7 @@ function validate(validatableInput: Validatable) {
   ) {
     isValid = isValid && validatableInput.value <= validatableInput.max;
   }
+  return isValid;
 }
 // autobind decorator
 
@@ -59,7 +60,7 @@ class ProjectInput {
   templateElement: HTMLTemplateElement;
   hostElement: HTMLDivElement;
   element: HTMLFormElement;
-  tileInputElement: HTMLInputElement;
+  titleInputElement: HTMLInputElement;
   descriptionInputElement: HTMLInputElement;
   peopleInputElement: HTMLInputElement;
 
@@ -76,7 +77,7 @@ class ProjectInput {
     this.element = importedContent.firstElementChild as HTMLFormElement;
     this.element.id = "user-input";
 
-    this.tileInputElement = this.element.querySelector(
+    this.titleInputElement = this.element.querySelector(
       "#title"
     ) as HTMLInputElement;
     this.descriptionInputElement = this.element.querySelector(
@@ -91,7 +92,7 @@ class ProjectInput {
   }
 
   private gatherUserInput(): [string, string, number] | void {
-    const enteredTitle = this.tileInputElement.value;
+    const enteredTitle = this.titleInputElement.value;
     const enteredDescription = this.descriptionInputElement.value;
     const enteredPeople = this.peopleInputElement.value;
 
@@ -123,7 +124,7 @@ class ProjectInput {
   }
 
   private clearInputs() {
-    this.tileInputElement.value = "";
+    this.titleInputElement.value = "";
     this.descriptionInputElement.value = "";
     this.peopleInputElement.value = "";
   }

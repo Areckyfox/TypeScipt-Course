@@ -31,11 +31,11 @@ function validate(validatableInput) {
     return isValid;
 }
 function autobind(_, _2, descriptor) {
-    const originalMethod = descriptor.value;
+    const orginalMethod = descriptor.value;
     const adjDescriptor = {
         configurable: true,
         get() {
-            const boundFn = originalMethod.bind(this);
+            const boundFn = orginalMethod.bind(this);
             return boundFn;
         },
     };
@@ -45,8 +45,8 @@ class ProjectInput {
     constructor() {
         this.templateElement = document.getElementById("project-input");
         this.hostElement = document.getElementById("app");
-        const importedNode = document.importNode(this.templateElement.content, true);
-        this.element = importedNode.firstElementChild;
+        const importedContent = document.importNode(this.templateElement.content, true);
+        this.element = importedContent.firstElementChild;
         this.element.id = "user-input";
         this.titleInputElement = this.element.querySelector("#title");
         this.descriptionInputElement = this.element.querySelector("#description");
@@ -61,14 +61,14 @@ class ProjectInput {
         const titleValidatable = {
             value: enteredTitle,
             required: true,
+            minLength: 5,
         };
         const descriptionValidatable = {
             value: enteredDescription,
             required: true,
-            minLength: 5,
         };
         const peopleValidatable = {
-            value: +enteredPeople,
+            value: enteredPeople,
             required: true,
             min: 1,
             max: 5,
@@ -76,7 +76,7 @@ class ProjectInput {
         if (!validate(titleValidatable) ||
             !validate(descriptionValidatable) ||
             !validate(peopleValidatable)) {
-            alert("Invalid input, please try again!");
+            alert("invalid input, please try again!");
             return;
         }
         else {
