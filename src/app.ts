@@ -16,14 +16,14 @@ function validate(validatableInput: Validatable) {
   }
   if (
     validatableInput.minLength != null &&
-    validatableInput.value === "string"
+    typeof validatableInput.value === "string"
   ) {
     isValid =
       isValid && validatableInput.value.length >= validatableInput.minLength;
   }
   if (
     validatableInput.maxLength != null &&
-    validatableInput.value === "string"
+    typeof validatableInput.value === "string"
   ) {
     isValid =
       isValid && validatableInput.value.length <= validatableInput.maxLength;
@@ -32,13 +32,13 @@ function validate(validatableInput: Validatable) {
     validatableInput.min != null &&
     typeof validatableInput.value === "number"
   ) {
-    isValid = isValid && validatableInput.min >= validatableInput.value;
+    isValid = isValid && validatableInput.value >= validatableInput.min;
   }
   if (
     validatableInput.max != null &&
     typeof validatableInput.value === "number"
   ) {
-    isValid = isValid && validatableInput.max <= validatableInput.value;
+    isValid = isValid && validatableInput.value <= validatableInput.max;
   }
 }
 // autobind decorator
@@ -135,7 +135,7 @@ class ProjectInput {
     if (Array.isArray(userInput)) {
       const [title, desc, people] = userInput;
       console.log(title, desc, people);
-      this.clearInputs;
+      this.clearInputs();
     }
   }
 
@@ -148,4 +148,4 @@ class ProjectInput {
   }
 }
 
-const prjjInput = new ProjectInput();
+const prjInput = new ProjectInput();
