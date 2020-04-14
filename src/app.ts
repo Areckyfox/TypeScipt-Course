@@ -9,22 +9,22 @@ interface Validatable {
   max?: number;
 }
 
-function validate(validateableInput: Validatable) {
+function validate(validatableInput: Validatable) {
   let isValid = true;
-  if(validateableInput.required) {
-    isValid = isValid && validateableInput.value.toString().trim().length !== 0;
+  if(validatableInput.required) {
+    isValid = isValid && validatableInput.value.toString().trim().length !== 0;
   }
-  if(validateableInput.minLength != null && validateableInput.value === 'string') {
-    isValid = isValid && validateableInput.value.length >= validateableInput.minLength;
+  if(validatableInput.minLength != null && validatableInput.value === 'string') {
+    isValid = isValid && validatableInput.value.length >= validatableInput.minLength;
   }
-  if(validateableInput.maxLength != null && validateableInput.value === 'string') {
-    isValid = isValid && validateableInput.value.length <= validateableInput.maxLength;
+  if(validatableInput.maxLength != null && validatableInput.value === 'string') {
+    isValid = isValid && validatableInput.value.length <= validatableInput.maxLength;
   }
-  if(validateableInput.min != null && typeof validateableInput.value === 'number') {
-    isValid = isValid && validateableInput.min >= validateableInput.value;
+  if(validatableInput.min != null && typeof validatableInput.value === 'number') {
+    isValid = isValid && validatableInput.min >= validatableInput.value;
   } 
-  if(validateableInput.max != null && typeof validateableInput.value === 'number') {
-    isValid = isValid && validateableInput.max <= validateableInput.value;
+  if(validatableInput.max != null && typeof validatableInput.value === 'number') {
+    isValid = isValid && validatableInput.max <= validatableInput.value;
   } 
 }
 // autobind decorator
